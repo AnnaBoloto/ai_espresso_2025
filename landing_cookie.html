@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Positive Predictions for 2025</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-image: url('background_c.png'); /* Replace with the path to your image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+    }
+    .container {
+      margin-top: 250px;
+      background: rgba(0, 0, 0, 0.5); /* Adds transparency for better text visibility */
+      padding: 40px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .prediction {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .cookie-container {
+      position: relative;
+      margin: 20px auto;
+      width: 150px;
+      height: 150px;
+    }
+    .cookie {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('table_cookie2.png') no-repeat center / contain; /* Replace with the path to your cookie image */
+      transition: transform 0.5s, opacity 0.5s;
+    }
+    .cookie.cracked {
+      transform: scale(1.5) rotate(45deg);
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AI Espresso fortune cookie for 2025!</h1>
+    <p>Click the button to see your prediction for 2025.</p>
+    <button onclick="crackCookie()">Crack the Cookie</button>
+    <div class="cookie-container">
+      <div class="cookie" id="cookie"></div>
+    </div>
+    <div class="prediction" id="prediction"></div>
+  </div>
+
+  <script>
+    const predictions = [
+      "2025 will bring groundbreaking advances in green energy!",
+      "Humanity will achieve new milestones in space exploration.",
+      "Global cooperation on climate change will improve dramatically.",
+      "AI and technology will help solve critical healthcare challenges.",
+      "Education will become more accessible and inclusive worldwide."
+    ];
+
+    function crackCookie() {
+      const cookie = document.getElementById('cookie');
+      const predictionElement = document.getElementById('prediction');
+
+      // If the cookie is already cracked, don't do anything
+      if (cookie.classList.contains('cracked')) {
+        return;
+      }
+
+      // Crack the cookie
+      cookie.classList.add('cracked');
+
+      // Generate a random prediction
+      const randomIndex = Math.floor(Math.random() * predictions.length);
+      predictionElement.innerText = predictions[randomIndex];
+
+      // Reset the cookie after the animation
+      setTimeout(() => {
+        cookie.classList.remove('cracked');
+      }, 1000); // Reset timing matches the transition duration
+    }
+  </script>
+</body>
+</html>
